@@ -1,0 +1,125 @@
+.from-box {
+  background-color: #f7f6f2;
+  border-radius: 30px;
+  margin: 0 20px 20px 20px;
+}
+
+.from-box h1 {
+  padding: 20px;
+}
+
+.form-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.input-box label {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.input-box input {
+  width: 70%;
+  font-size: 1.1rem;
+  padding-left: 5px;
+  background: transparent;
+  border-radius: 10px;
+  border: 1px solid gray;
+}
+
+.form-control-file {
+  position: relative;
+
+  min-height: 10em;
+  outline: none;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.form-control-file:before {
+  content: attr(data-title);
+  position: absolute;
+  top: 0.5em;
+  left: 0;
+  width: 97%;
+  min-height: 6em;
+  line-height: 4em;
+  letter-spacing: 2px;
+  padding-top: 1.5em;
+  opacity: 1;
+  visibility: visible;
+  text-align: center;
+  border: 0.25em dashed currentColor;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.form-control-file:hover:before {
+  border-style: solid;
+  box-shadow: inset 0px 0px 0px 0.25em currentColor;
+}
+
+.add-img-btn {
+  color: white;
+  width: 30%;
+  align-self: center;
+  background-color: black;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  line-height: 23px;
+}
+
+.report-page-bottom label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.agree-check-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.agree-check-box p {
+  color: #9d9d9d;
+  padding: 0 20px;
+}
+
+.send-btn {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 20px;
+}
+
+.send-btn button {
+  font-size: 1.5rem;
+  font-size: 1rem;
+  color: white;
+  background-color: #9cb8d9;
+  border-radius: 20px;
+  width: 90px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-btn button:hover {
+  background-color: #5c8bc1;
+}
+
+.send-btn button a {
+  color: white;
+}

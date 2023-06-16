@@ -1,0 +1,25 @@
+@media screen and (max-width: 500px) {
+  .comment-page-top-left,
+  .comment-page-top-middle {
+    padding: 0;
+  }
+
+  .comment-page-top-left,
+  .comment-page-top-middle {
+    width: 50%;
+  }
+
+  .comment-num-string {
+    margin-left: 0;
+    width: 100px;
+  }
+
+  .old-to-new-btn {
+    margin-left: 10px;
+  }
+
+  .comment-page-middle-top-left,
+  .comment-page-middle-top-right {
+    padding: 15px;
+  }
+}

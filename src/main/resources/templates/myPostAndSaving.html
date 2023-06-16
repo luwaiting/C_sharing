@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的頁面</title>
+
+    <!-- IMPORT FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" th:href="@{'https://fonts.googleapis.com'}"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin th:href="@{'https://fonts.gstatic.com'}"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap"
+      th:href="@{'https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap'}"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Leaverou/awesomplete/gh-pages/awesomplete.css" th:href="@{https://cdn.rawgit.com/Leaverou/awesomplete/gh-pages/awesomplete.css}">
+
+
+    <!-- CSS -->
+    <link rel="manifest" href="../static/manifest.json" th:href="@{/manifest.json}">
+    <link rel="stylesheet" href="../static/css/posting.css" th:href="@{/css/posting.css}"/>
+    <link rel="stylesheet" href="../static/css/popup.css" th:href="@{/css/popup.css}"/>
+    <link rel="stylesheet" href="../static/css/profile.css" th:href="@{/css/profile.css}" />
+    <link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" href="../static/css/slider.css" th:href="@{/css/slider.css}"/>
+  </head>
+  <body>
+    <div>
+      <!-- TOP BAR START-->
+      <div class="top-bar">
+        <div class="top-bar-left">
+          <div class="name"><a href="#" th:href="@{'/homePage/'+${accountId}}">C-Sharing</a></div>
+          <form action="#" th:action="@{/search}" method="post">
+            <input type="hidden" name="accountId" th:value="${accountId}"/>
+            <div class="search-box">
+              <input type="text" name="search" list="myList" class="awesomplete"/>
+              <datalist id="myList">
+                <div th:each="key:${allCourseBoard}">
+                  <option th:text="${key.boardName}">Ada</option>
+                </div>
+              </datalist>
+              <a class="search-btn" href="#" id="searchBtn">
+                <img
+                        class="search-img"
+                        src="../static/img/posting-page-img/Vector.svg"
+                        th:src="@{/img/posting-page-img/Vector.svg}"
+                        alt=""
+                />
+              </a>
+            </div>
+          </form>
+        </div>
+        <div class="top-bar-right">
+          <a href="#" th:href="@{'/postPage/'+${accountId}}"
+          ><div class="profile">
+            <img
+                    class="post"
+                    src="../static/img/index-img/post.svg"
+                    th:src="@{/img/index-img/post.svg}"
+                    alt=""
+            /></div
+          ></a>
+          <a href="#" th:href="@{'/personalProfile/'+${accountId}}"
+          ><div class="profile">
+            <img
+                    class="profile1"
+                    src="../static/img/posting-page-img/Profile1.svg"
+                    th:src="@{/img/posting-page-img/Profile1.svg}"
+                    alt=""
+            />
+            <img
+                    class="profile2"
+                    src="../static/img/posting-page-img/Profile2.svg"
+                    th:src="@{/img/posting-page-img/Profile2.svg}"
+                    alt=""
+            />
+            <img
+                    class="profile3"
+                    src="../static/img/posting-page-img/Profile3.svg"
+                    th:src="@{/img/posting-page-img/Profile3.svg}"
+                    alt=""
+            />
+          </div>
+          </a>
+        </div>
+      </div>
+      <!-- TOP BAR END-->
+
+      <div class="main-content">
+        <!-- SIDE BAR START-->
+        <div class="main-content-left">
+          <div class="side-bar">
+            <i class="fa-solid fa-bars"></i>
+            <div class="menu-bar">
+              <div class="menu">
+                <ul class="munu-links profile-menu-links">
+                  <li class="nav-links profile-nav-links">
+                    <a class="nav-text" href="#" th:href="@{'/personalProfile/'+${accountId}}">個人頁面</a>
+                  </li>
+                  <li class="nav-links profile-nav-links">
+                    <a class="nav-text" href="#" >
+                    我的貼文/收藏
+                    </a>
+                  </li>
+                  <li class="nav-links profile-nav-links">
+                    <a class="nav-text" href="#" th:href="@{'/followList/'+${accountId}}"> 追蹤清單 </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- SIDE BAR END-->
+
+        <div class="main-content-right">
+          <div class="alert alert-success alert-dismissible fade in" th:if="${!#strings.isEmpty(message)}">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Congratulation，</strong>
+            <span th:text="${message}">success</span>
+          </div>
+          <div class="container">
+            <div class="slider-post">
+              <div class="slider-post-title">
+                <input
+                  type="radio"
+                  id="my-post-radio"
+                  name="showing-content"
+                  checked
+                  onclick="showContent();"
+                />
+                <label
+                  for="my-post-radio"
+                  class="select-post-btn border-active"
+                >
+                  <span style="color: black">我的貼文</span>
+                </label>
+                <input
+                  type="radio"
+                  id="my-saving-radio"
+                  name="showing-content"
+                  onclick="showContent();"
+                />
+                <label for="my-saving-radio" class="select-saving-btn">
+                  <span style="color: gray">我的收藏</span>
+                </label>
+              </div>
+              <div class="divding-line"><hr style="width: 100%" /></div>
+              <!-- SLIDER START -->
+              <div class="slider">
+                <div class="slides">
+                  <div class="slide left hover-scroll-bar">
+                    <!--MY POST START-->
+                    <div class="others-post" th:each="myPost:${myPost}">
+                      <div class="posts">
+                        <a href="#" th:href="@{'/seePosting/'+${myPost.id}+'/'+${accountId}}"
+                          ><div class="course-name">
+                            <h1 th:text="${myPost.courseName}">306048011 管理科學</h1>
+                          </div>
+                          <div class="course-instructor">
+                            <h2 style="color: rgba(0, 0, 0, 0.8)" th:text="${myPost.teacherName}">
+                              周彥君 莊皓鈞
+                            </h2>
+                          </div>
+                        </a>
+<!--                        undo-->
+                        <a href="#" th:href="@{'/updatePost/'+${myPost.id}+'/'+${accountId}}" class="btn-effect">
+                          <img
+                            src="../static/img/profile-page-img/edit.svg"
+                            th:src="@{/img/profile-page-img/edit.svg}"
+                            alt=""
+                          />
+                        </a>
+                      </div>
+
+                      <div class="comment-dividing-line">
+                        <hr style="border: 1px solid #a3a3a3" />
+                      </div>
+                    </div>
+                    <!--MY POST END -->
+                  </div>
+
+                  <div class="slide hover-scroll-bar">
+                    <!--SAVING POST START -->
+                    <div class="others-post" th:each="savePost:${savePost}">
+                      <div class="posts">
+                        <a href="#" th:href="@{'/seePosting/'+${savePost.id}+'/'+${accountId}}"
+                          ><div class="course-name">
+                            <h1 th:text="${savePost.courseName}">306048011 管理科學</h1>
+                          </div>
+                          <div class="course-instructor">
+                            <h2 style="color: rgba(0, 0, 0, 0.8)" th:text="${savePost.teacherName}">周彥君</h2>
+                          </div>
+                        </a>
+                        <form action="#" th:action="@{/deleteSavePost}" method="post">
+                          <input type="hidden" name="accountId" th:value="${accountId}">
+                          <input type="hidden" name="postingId" th:value="${savePost.id}">
+                          <button class="btn-effect">
+                            <i
+                                    class="fa-solid fa-trash"
+                                    style="color: #000000"
+                            ></i>
+                          </button>
+                        </form>
+                      </div>
+                      <div class="comment-dividing-line">
+                        <hr style="border: 1px solid #a3a3a3" />
+                      </div>
+                    </div>
+                    <!--SAVING POST END -->
+                  </div>
+                </div>
+              </div>
+              <!-- SLIDER END -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SCRIPT -->
+    <script defer src="../static/js/main.js" th:src="@{/js/main.js}"></script>
+
+    <script src="../static/js/jquery-3.2.1.min.js"
+            th:src="@{/js/jquery-3.2.1.min.js}">
+    </script>
+    <script>
+      if('serviceWorker' in navigator){
+        console.log("Will service worker register?");
+        navigator.serviceWorker.register('/service-worker.js').then(function (reg){
+          console.log("Yes,it did");
+        }).catch(function (err){
+          console.log("No it didn't,This happen: ",err);
+        })
+      }
+    </script>
+    <script
+            src="../static/js/bootstrap.min.js"
+            th:src="@{/js/bootstrap.min.js}"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/68fe11f082.js"
+      th:src="@{'https://kit.fontawesome.com/68fe11f082.js'}"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.rawgit.com/Leaverou/awesomplete/gh-pages/awesomplete.min.js" th:src="@{https://cdn.rawgit.com/Leaverou/awesomplete/gh-pages/awesomplete.min.js}"></script>
+
+  </body>
+</html>

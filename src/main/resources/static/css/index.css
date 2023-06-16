@@ -1,0 +1,159 @@
+.swap-btn {
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
+  background-color: #9cb8d9;
+  border-radius: 10px;
+  width: 90px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swap-btn:hover {
+  background-color: #7c92b3;
+}
+
+.side-bar-top {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.course-container {
+  padding: 40px 0;
+  width: 100%;
+}
+.course-top {
+  background-color: #f7f6f2;
+  border-radius: 30px;
+  width: 100%;
+}
+
+.course-info {
+  display: flex;
+}
+
+.course-top-name,
+.course-top-instructor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compulsory-or-not {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.course-title > * {
+  padding: 10px 20px;
+}
+
+.course-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.course-name,
+.course-instructor {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+.forums a {
+  width: 100%;
+}
+
+.forums a div {
+  padding: 5px;
+}
+
+.slider-post-title label span {
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  .post {
+    width: 35px;
+    margin-left: 40px;
+  }
+
+  .search-box {
+    max-width: 150px;
+  }
+
+  .search-img {
+    margin: 1px 0px 0 -15px;
+    width: 30px;
+  }
+
+  .slider-post-title label span {
+    font-size: 0.5rem;
+  }
+
+  .posting-order select,
+  .posting-order span {
+    font-size: 0.5rem;
+  }
+
+  .slider-post {
+    width: 100%;
+    padding: 40px 10px 40px 10px;
+  }
+
+  .others-post {
+    padding: 5px;
+  }
+
+  .post-top span,
+  .post-top img {
+    padding-left: 5px;
+    padding-top: 5px;
+  }
+
+  .course-name,
+  .course-instructor {
+    margin: 0;
+  }
+}
+
+/* test */
+
+.button-box {
+  width: 220px;
+  position: relative;
+  border-radius: 30px;
+  background: #fff;
+}
+
+.toggle-btn {
+  padding: 10px 33.5px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  outline: none;
+  position: relative;
+  text-align: center;
+  font-weight: 600;
+}
+
+.toggle-btn a {
+  color: black;
+}
+
+.btn {
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 110px;
+  height: 100%;
+  background: #9cb8d9;
+  border-radius: 30px;
+  transition: 0.5s;
+}

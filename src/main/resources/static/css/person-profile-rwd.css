@@ -1,0 +1,121 @@
+@media screen and (max-width: 500px) {
+  .profile-top {
+    display: block;
+  }
+
+  .profile-top-right {
+    width: 100%;
+  }
+
+  .personal-profile-top-right > * {
+    margin: 0;
+  }
+
+  select {
+    font-size: 1rem;
+  }
+
+  .select {
+    overflow: visible;
+  }
+
+  .verification-btn {
+    margin-left: 5px;
+  }
+
+  .verification-btn button {
+    font-size: 0.8rem;
+    width: 70px;
+    height: 25px;
+  }
+
+  .left-num img,
+  .right-num img {
+    width: 20px;
+  }
+
+  .right-num i {
+    font-size: 20px;
+  }
+
+  .personal-profile-top-right p {
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin-left: 10px;
+  }
+
+  .left-num,
+  .right-num {
+    margin-top: 10px;
+  }
+
+  .introduce {
+    font-size: 1rem;
+    margin: 20px 0 0px 15px;
+  }
+
+  .profile-bottom {
+    width: 100%;
+    margin: 10px 0 0;
+  }
+
+  .edit-info {
+    padding: 0.5rem 1rem;
+  }
+
+  .introduce img {
+    width: 15px;
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+
+  .dialog {
+    width: 100%;
+  }
+
+  .input-box label {
+    font-size: 1rem;
+  }
+
+  .input-box {
+    width: 90%;
+    margin-left: 10px;
+  }
+
+  .input-box input {
+    font-size: 0.8rem;
+  }
+
+  .agree-check-box p {
+    font-size: 0.8rem;
+  }
+
+  .send-btn button {
+    font-size: 0.8rem;
+    width: 70px;
+    height: 25px;
+  }
+
+  .identity img {
+    width: 15px;
+  }
+
+  #comfirm,
+  #comfirm-identity {
+    width: 40px;
+    height: 20px;
+    font-size: 0.8rem;
+  }
+
+  #comfirm-identity {
+    margin-left: 0px;
+  }
+
+  .identity {
+    margin-left: 0;
+  }
+
+  .profile {
+    width: 95%;
+  }
+}

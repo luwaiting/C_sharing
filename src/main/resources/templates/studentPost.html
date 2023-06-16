@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>學生發文</title>
+
+    <!-- IMPORT FONT -->
+      <link
+              rel="preconnect"
+              href="https://fonts.googleapis.com"
+              th:href="@{https://fonts.googleapis.com}"
+      />
+      <link
+              rel="preconnect"
+              href="https://fonts.gstatic.com"
+              crossorigin
+              th:href="@{https://fonts.gstatic.com}"
+      />
+      <link
+              href="https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap"
+              th:href="@{https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap}"
+              rel="stylesheet"
+      />
+      <link
+              rel="stylesheet"
+              href="../static/css/main.css"
+              th:href="@{/css/main.css}"
+      />
+
+      <link
+              rel="stylesheet"
+              href="../static/css/topost.css"
+              th:href="@{/css/topost.css}"
+      />
+      <link rel="manifest" href="../static/manifest.json" th:href="@{/manifest.json}">
+
+  </head>
+
+  <body>
+    <div>
+      <!-- TOP BAR START-->
+      <div class="top-bar">
+          <div class="top-bar-left">
+              <div class="name"><a href="#" th:href="@{'/homePage/'+${accountId}}">C-Sharing</a></div>
+              <form action="#" th:action="@{/search}" method="post">
+                  <input type="hidden" name="accountId" th:value="${accountId}"/>
+                  <div class="search-box">
+                      <input type="text" name="search" list="myList" class="awesomplete"/>
+                      <datalist id="myList">
+                          <div th:each="key:${allCourseBoard}">
+                              <option th:text="${key.boardName}">Ada</option>
+                          </div>
+                      </datalist>
+                      <a class="search-btn" href="#" id="searchBtn">
+                          <img
+                                  class="search-img"
+                                  src="../static/img/posting-page-img/Vector.svg"
+                                  th:src="@{/img/posting-page-img/Vector.svg}"
+                                  alt=""
+                          />
+                      </a>
+                  </div>
+              </form>
+          </div>
+        <div class="top-bar-right">
+<!--          undo-->
+            <a href="#" th:href="@{'/personalProfile/'+${accountId}}"
+            ><div class="profile">
+              <img
+                class="profile1"
+                src="../static/img/posting-page-img/Profile1.svg"
+                th:src="@{/img/posting-page-img/Profile1.svg}"
+                alt=""
+              />
+              <img
+                class="profile2"
+                src="../static/img/posting-page-img/Profile2.svg"
+                th:src="@{/img/posting-page-img/Profile2.svg}"
+                alt=""
+              />
+              <img
+                class="profile3"
+                src="../static/img/posting-page-img/Profile3.svg"
+                th:src="@{/img/posting-page-img/Profile3.svg}"
+                alt=""
+              /></div
+          ></a>
+        </div>
+      </div>
+      <!-- TOP BAR END-->
+
+      <div class="main-content">
+        <!-- SIDE BAR START-->
+        <div class="main-content-left">
+          <div class="side-bar">
+            <header>
+              <div class="text">校版</div>
+            </header>
+
+            <div class="menu-bar">
+              <div class="menu">
+                <ul class="munu-links">
+                  <li class="nav-links">
+                    <img
+                            class="nav-img"
+                            src="../static/img/posting-page-img/NCCU.svg"
+                            th:src="@{/img/posting-page-img/NCCU.svg}"
+                            alt=""
+                    />
+                    <!--         undo           -->
+                    <a class="nav-text" href="nccu.html">政治大學</a>
+                  </li>
+                  <li class="nav-links">
+                    <img
+                            class="nav-img"
+                            src="../static/img/posting-page-img/NTU.svg"
+                            th:src="@{/img/posting-page-img/NTU.svg}"
+                            alt=""
+                    />
+                    <a class="nav-text" href="#"> 台灣大學 </a>
+                  </li>
+                  <li class="nav-links">
+                    <img
+                            class="nav-img"
+                            src="../static/img/posting-page-img/NTHU.svg"
+                            th:src="@{/img/posting-page-img/NTHU.svg}"
+                            alt=""
+                    />
+                    <a class="nav-text" href="#"> 清華大學 </a>
+                  </li>
+                  <li class="nav-links">
+                    <img
+                            class="nav-img"
+                            src="../static/img/posting-page-img/NYCU.svg"
+                            th:src="@{/img/posting-page-img/NYCU.svg}"
+                            alt=""
+                    />
+                    <a class="nav-text" href="#"> 陽明交通大學 </a>
+                  </li>
+                  <li class="nav-links">
+                    <img
+                            class="nav-img"
+                            src="../static/img/posting-page-img/NCKU.svg"
+                            th:src="@{/img/posting-page-img/NCKU.svg}"
+                            alt=""
+                    />
+                    <a class="nav-text" href="#"> 成功大學 </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- SIDE BAR END-->
+
+        <!-- POSTING START-->
+        <div class="main-content-right">
+          <div class="container">
+            <div class="post-content">
+<!--              undo-->
+              <form action="#" th:action="@{/postPage}" method="post" style="height: 100%">
+                <input type="hidden" th:value="${accountId}" name="accountId">
+                  <input type="hidden" th:if="${posting != null}" th:value="${posting.id}" name="id">
+                <div class="posting-top">
+                  <div class="poster-image">
+                    <img src="../static/img/index-img/profile.svg" th:src="@{/img/index-img/profile.svg}" alt="" />
+                  </div>
+                  <div
+                    class="nickname-select"
+                    style="font-weight: 800; font-size: 1.7rem"
+                  >
+                    <select name="nickname">
+                      <div th:each="nick:${nickname}">
+                        <option th:text="${nick.nickname}">匿名</option>
+                      </div>
+<!--                      <option value="school">政治大學</option>-->
+<!--                      <option value="anonymous">匿名</option>-->
+                    </select>
+                  </div>
+
+                  <div class="posting-time" style="color: #868686">
+                    <p th:text="${time}">4月18日 18:00</p>
+                  </div>
+                </div>
+
+                <div class="posting-title">
+                  <div class="posting-title-left">
+<!--                    <div class="login-input-box">-->
+<!--                      <input-->
+<!--                        type="text"-->
+<!--                        class="course-textarea"-->
+<!--                        name="courseNo"-->
+<!--                        placeholder="課程代碼"-->
+<!--                      />-->
+<!--                    </div>-->
+                    <div class="login-input-box">
+                      <label for="courseName" class="sweetness">Course Name :</label>
+                      <input
+                        type="text"
+                        class="course-textarea"
+                        name="courseName"
+                        id="courseName"
+                        th:placeholder="${posting.courseName}"
+                      />
+                      <span class="form-control-static text-danger" th:if="${#fields.hasErrors('posting.courseName')}" th:errors="${posting.courseName}"> never null!</span>
+                    </div>
+                    <div class="login-input-box">
+                      <label for="ProfessorName" class="sweetness">Professor Name</label>
+                      <input
+                        type="text"
+                        class="course-textarea"
+                        name="teacherName"
+                        th:placeholder="${posting.teacherName}"
+                        id="ProfessorName"
+                      />
+                      <span class="form-control-static text-danger" th:if="${#fields.hasErrors('posting.teacherName')}" th:errors="${posting.teacherName}"> never null!</span>
+                    </div>
+                  </div>
+                  <div class="posting-title-right">
+                    <div class="compulsory-or-not">
+                      <div style="font-weight: 800; font-size: 1.5rem">
+                        <select name="courseType">
+                          <option value="0" th:selected="(${posting.courseType}=='0')">
+                            必/選修
+                          </option>
+                          <option value="1" th:selected="(${posting.courseType}=='1')">通識</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="posting-content" style="margin-top: 10px">
+                  <div class="rating-row">
+                    <div class="sweetness"> Easy A :</div>
+                     <div class="sweetness-rating">
+                      <input
+                        type="radio"
+                        id="sweetness1"
+                        name="sweet"
+                        value="1"
+                        style="width: 20px; height: 20px"
+                        onclick="sweetRating()"
+                      />
+                         <label for="sweetness1" style="font-size: 25px"
+                         ><span class="fa fa-star unchecked sweet-star"></span
+                         ></label>
+                      <input
+                        type="radio"
+                        id="sweetness2"
+                        name="sweet"
+                        value="2"
+                        style="width: 20px; height: 20px"
+                        onclick="sweetRating()"
+                      />
+                         <label for="sweetness2" style="font-size: 25px"
+                         ><span class="fa fa-star unchecked sweet-star"></span
+                         ></label>
+                      <input
+                        type="radio"
+                        id="sweetness3"
+                        name="sweet"
+                        value="3"
+                        style="width: 20px; height: 20px"
+                        onclick="sweetRating()"
+                      />
+                         <label for="sweetness3" style="font-size: 25px"
+                         ><span class="fa fa-star unchecked sweet-star"></span
+                         ></label>
+                      <input
+                        type="radio"
+                        id="sweetness4"
+                        name="sweet"
+                        value="4"
+                        style="width: 20px; height: 20px"
+                        onclick="sweetRating()"
+                      />
+                         <label for="sweetness4" style="font-size: 25px"
+                         ><span class="fa fa-star unchecked sweet-star"></span
+                         ></label>
+                      <input
+                        type="radio"
+                        id="sweetness5"
+                        name="sweet"
+                        value="5"
+                        style="width: 20px; height: 20px"
+                        onclick="sweetRating()"
+                      />
+                         <label for="sweetness5" style="font-size: 25px"
+                         ><span class="fa fa-star unchecked sweet-star"></span
+                         ></label>
+                       <span class="form-control-static text-danger" th:if="${#fields.hasErrors('posting.sweet')}" th:errors="${posting.sweet}"> never null!</span>
+                     </div>
+                  </div>
+                  <div class="rating-row">
+                    <div class="simplicity">Course workload :</div>
+                    <div class="simplicity-rating">
+                      <input
+                        type="radio"
+                        id="simplicity1"
+                        name="cool"
+                        value="1"
+                        style="width: 20px; height: 20px"
+                        onclick="simpleRating()"
+                      />
+
+                        <label for="simplicity1" style="font-size: 25px"
+                        ><span class="fa fa-star unchecked simple-star"></span
+                        ></label>
+                      <input
+                        type="radio"
+                        id="simplicity2"
+                        name="cool"
+                        value="2"
+                        style="width: 20px; height: 20px"
+                        onclick="simpleRating()"
+                      />
+                        <label for="simplicity2" style="font-size: 25px"
+                        ><span class="fa fa-star unchecked simple-star"></span
+                        ></label>
+                      <input
+                        type="radio"
+                        id="simplicity3"
+                        name="cool"
+                        value="3"
+                        style="width: 20px; height: 20px"
+                        onclick="simpleRating()"
+                      />
+                        <label for="simplicity3" style="font-size: 25px"
+                        ><span class="fa fa-star unchecked simple-star"></span
+                        ></label>
+                      <input
+                        type="radio"
+                        id="simplicity4"
+                        name="cool"
+                        value="4"
+                        style="width: 20px; height: 20px"
+                        onclick="simpleRating()"
+                      />
+                        <label for="simplicity4" style="font-size: 25px"
+                        ><span class="fa fa-star unchecked simple-star"></span
+                        ></label>
+                      <input
+                        type="radio"
+                        id="simplicity5"
+                        name="cool"
+                        value="5"
+                        style="width: 20px; height: 20px"
+                        onclick="simpleRating()"
+                      />
+                        <label for="simplicity5" style="font-size: 25px"
+                        ><span class="fa fa-star unchecked simple-star"></span
+                        ></label>
+                      <span class="form-control-static text-danger" th:if="${#fields.hasErrors('posting.cool')}" th:errors="${posting.cool}"> never null!</span>
+                    </div>
+                  </div>
+                  <div class="course-experience">
+                    <div class="sharing">Course experience :</div>
+
+                    <div class="share-content">
+                      <span class="form-control-static text-danger" th:if="${#fields.hasErrors('posting.courseName')}" th:errors="${posting.courseName}"> never null!</span>
+
+                      <textarea
+                        class="comment-textarea"
+                        name="description"
+                        id="comment-content"
+                        placeholder="....."
+                        style="height: 500px"
+                      ></textarea>
+
+                    </div>
+                  </div>
+                  <div class="send-btn">
+                    <button type="cancel" class="btn-effect"><a href="#" th:href="@{'/homePage/'+${accountId}}">Cancel 取消</a></button>
+                    <button type="submit" class="btn-effect">Send 發送</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- POSTING END-->
+      </div>
+    </div>
+
+    <!-- SCRIPT -->
+
+    <script defer src="../static/js/main.js" th:src="@{/js/main.js}"></script>
+    <script defer src="../static/js/posting.js" th:src="@{/js/posting.js}"></script>
+    <script src="../static/js/jquery-3.2.1.min.js" th:src="@{/js/jquery-3.2.1.min.js}"></script>
+    <script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+
+
+    <script
+      src="https://kit.fontawesome.com/68fe11f082.js"
+      th:src="@{https://kit.fontawesome.com/68fe11f082.js}"
+      crossorigin="anonymous"
+    ></script>
+
+
+    <script>
+        // RESPONSIVE TEXTAREA START
+        const textarea = document.querySelector(".comment-textarea");
+        textarea.addEventListener("input", autoResize, false);
+
+        function autoResize() {
+            textarea.style.height = "500px";
+            textarea.style.height = textarea.scrollHeight + "px";
+        }
+        // RESPONSIVE TEXTAREA END
+
+        function simpleRating() {
+            var s1 = document.getElementById("simplicity1");
+            var s2 = document.getElementById("simplicity2");
+            var s3 = document.getElementById("simplicity3");
+            var s4 = document.getElementById("simplicity4");
+            var s5 = document.getElementById("simplicity5");
+
+            var star = document.querySelectorAll(".simple-star");
+
+            if (s1.checked == true) {
+                for (var i = 0; i <= 0; i++) {
+                    star[i].classList.remove("unchecked");
+                    star[i].classList.add("checked");
+                }
+                for (var i = 1; i <= 4; i++) {
+                    star[i].classList.add("unchecked");
+                    star[i].classList.remove("checked");
+                }
+            } else if (s2.checked == true) {
+                for (var i = 0; i <= 1; i++) {
+                    star[i].classList.remove("unchecked");
+                    star[i].classList.add("checked");
+                }
+                for (var i = 2; i <= 4; i++) {
+                    star[i].classList.add("unchecked");
+                    star[i].classList.remove("checked");
+                }
+            } else if (s3.checked == true) {
+                for (var i = 0; i <= 2; i++) {
+                    star[i].classList.remove("unchecked");
+                    star[i].classList.add("checked");
+                }
+                for (var i = 3; i <= 4; i++) {
+                    star[i].classList.add("unchecked");
+                    star[i].classList.remove("checked");
+                }
+            } else if (s4.checked == true) {
+                for (var i = 0; i <= 3; i++) {
+                    star[i].classList.remove("unchecked");
+                    star[i].classList.add("checked");
+                }
+                for (var i = 4; i <= 4; i++) {
+                    star[i].classList.add("unchecked");
+                    star[i].classList.remove("checked");
+                }
+            } else if (s5.checked == true) {
+                for (var i = 0; i <= 4; i++) {
+                    star[i].classList.remove("unchecked");
+                    star[i].classList.add("checked");
+                }
+            }
+        }
+
+        function sweetRating() {
+            var s1 = document.getElementById("sweetness1");
+            var s2 = document.getElementById("sweetness2");
+            var s3 = document.getElementById("sweetness3");
+            var s4 = document.getElementById("sweetness4");
+            var s5 = document.getElementById("sweetness5");
+
+            var star = document.querySelectorAll(".sweet-star");
+
+            if (s1.checked == true) {
+                for (var i = 0; i <= 0; i++) {
+                    star[i].classList.remove("unchecked");
+                    star[i].classList.add("checked");
+                }
+                for (var i = 1; i <= 4; i++) {
+                    star[i].classList.add("unchecked");
+                    star[i].classList.remove("checked");
+                }
+            } else if (s2.checked == true) {
+                for (var i = 0; i <= 1; i++) {
+                    star[i].classList.remove("unchecked");
+                    star[i].classList.add("checked");
+                }
+                for (var i = 2; i <= 4; i++) {
+                    star[i].classList.add("unchecked");
+                    star[i].classList.remove("checked");
+                }
+            } else if (s3.checked == true) {
+                for (var i = 0; i <= 2; i++) {
+                    star[i].classList.remove("unchecked");
+                    star[i].classList.add("checked");
+                }
+                for (var i = 3; i <= 4; i++) {
+                    star[i].classList.add("unchecked");
+                    star[i].classList.remove("checked");
+                }
+            } else if (s4.checked == true) {
+                for (var i = 0; i <= 3; i++) {
+                    star[i].classList.remove("unchecked");
+                    star[i].classList.add("checked");
+                }
+                for (var i = 4; i <= 4; i++) {
+                    star[i].classList.add("unchecked");
+                    star[i].classList.remove("checked");
+                }
+            } else if (s5.checked == true) {
+                for (var i = 0; i <= 4; i++) {
+                    star[i].classList.remove("unchecked");
+                    star[i].classList.add("checked");
+                }
+            }
+        }
+    </script>
+    <script>
+        if('serviceWorker' in navigator){
+            console.log("Will service worker register?");
+            navigator.serviceWorker.register('/service-worker.js').then(function (reg){
+                console.log("Yes,it did");
+            }).catch(function (err){
+                console.log("No it didn't,This happen: ",err);
+            })
+        }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,143 @@
+.course-container {
+  padding: 40px 0;
+  width: 90%;
+}
+
+.course-top {
+  background-color: #f7f6f2;
+  border-radius: 30px;
+  height: 25vh;
+}
+
+.course-info {
+  display: flex;
+}
+
+.course-top-name,
+.course-top-instructor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+.compulsory-or-not {
+  display: flex;
+  align-items: center;
+  margin-left: 60px;
+  margin-top: 5px;
+}
+
+.course-title > * {
+  padding: 10px 20px;
+}
+
+.course-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.course-name,
+.course-instructor {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+.follow-btn button {
+  font-size: 1rem;
+  color: white;
+  background-color: #9cb8d9;
+  border-radius: 10px;
+  width: 90px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.follow-btn button:hover {
+  background-color: #5c8bc1;
+}
+
+.others-post {
+  padding: 20px;
+}
+
+.others-post a {
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.others-post a div {
+  padding: 15px;
+}
+
+.post-top {
+  display: flex;
+  align-items: center;
+}
+
+.post-top span {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.post-top span {
+  padding-left: 20px;
+}
+
+.post-top img {
+  padding-left: 60px;
+}
+
+.dividing-line {
+  margin: 15px 0;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+@media screen and (max-width: 500px) {
+  .course-title > * {
+    padding: 0;
+  }
+
+  .course-top-name,
+  .course-top-instructor {
+    padding: 10px 7px 2px 10px;
+  }
+
+  .follow-btn button {
+    font-size: 0.8rem;
+    width: 60px;
+    height: 20px;
+  }
+
+  .follow-btn {
+    padding: 10px 10px 2px 7px;
+  }
+
+  .compulsory-or-not {
+    margin-left: 10px;
+  }
+
+  .others-post {
+    padding: 5px;
+  }
+
+  .post-top img {
+    padding: 0;
+  }
+
+  .course-name,
+  .course-instructor {
+    margin: 0;
+  }
+
+  .dividing-line {
+    padding: 0;
+  }
+}

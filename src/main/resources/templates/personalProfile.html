@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的頁面</title>
+
+    <!-- IMPORT FONT -->
+    <link rel="manifest" href="../static/manifest.json" th:href="@{/manifest.json}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" th:href="@{'https://fonts.googleapis.com'}"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin th:href="@{'https://fonts.gstatic.com'}"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap"
+      th:href="@{'https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap'}"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Leaverou/awesomplete/gh-pages/awesomplete.css" th:href="@{https://cdn.rawgit.com/Leaverou/awesomplete/gh-pages/awesomplete.css}">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/popup.css" th:href="@{/css/popup.css}" />
+    <link rel="stylesheet" href="../static/css/profile.css" th:href="@{/css/profile.css}"/>
+    <link rel="stylesheet" href="../static/css/main.css"th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" href="../static/css/verification.css" th:href="@{/css/verification.css}"/>
+    <link
+            rel="stylesheet"
+            href="../static/css/person-profile-rwd.css"
+            th:href="@{/css/person-profile-rwd.css}"
+    />
+  </head>
+  <body>
+    <div>
+      <!-- TOP BAR START-->
+      <div class="top-bar">
+        <div class="top-bar-left">
+          <div class="name"><a href="#" th:href="@{'/homePage/'+${accountId}}">C-Sharing</a></div>
+          <form action="#" th:action="@{/search}" method="post">
+            <input type="hidden" name="accountId" th:value="${accountId}"/>
+            <div class="search-box">
+              <input type="text" name="search" list="myList" class="awesomplete"/>
+              <datalist id="myList">
+                <div th:each="key:${allCourseBoard}">
+                  <option th:text="${key.boardName}">Ada</option>
+                </div>
+              </datalist>
+              <a class="search-btn" href="#" id="searchBtn">
+                <img
+                        class="search-img"
+                        src="../static/img/posting-page-img/Vector.svg"
+                        th:src="@{/img/posting-page-img/Vector.svg}"
+                        alt=""
+                />
+              </a>
+            </div>
+          </form>
+        </div>
+        <div class="top-bar-right">
+          <a href="#" th:href="@{'/postPage/'+${accountId}}"
+          ><div class="profile">
+            <img
+                    class="post"
+                    src="../static/img/index-img/post.svg"
+                    th:src="@{/img/index-img/post.svg}"
+                    alt=""
+            /></div
+          ></a>
+          <a href="#" th:href="@{'/personalProfile/'+${accountId}}"
+          ><div class="profile">
+            <img
+                    class="profile1"
+                    src="../static/img/posting-page-img/Profile1.svg"
+                    th:src="@{/img/posting-page-img/Profile1.svg}"
+                    alt=""
+            />
+            <img
+                    class="profile2"
+                    src="../static/img/posting-page-img/Profile2.svg"
+                    th:src="@{/img/posting-page-img/Profile2.svg}"
+                    alt=""
+            />
+            <img
+                    class="profile3"
+                    src="../static/img/posting-page-img/Profile3.svg"
+                    th:src="@{/img/posting-page-img/Profile3.svg}"
+                    alt=""
+            />
+          </div>
+          </a>
+        </div>
+      </div>
+      <!-- TOP BAR END -->
+
+      <div class="main-content">
+        <!-- SIDE BAR START -->
+        <div class="main-content-left">
+          <div class="side-bar">
+            <i class="fa-solid fa-bars"></i>
+            <div class="menu-bar">
+              <div class="menu">
+                <ul class="munu-links profile-menu-links">
+                  <li class="nav-links profile-nav-links">
+                    <a class="nav-text" href="#" th:href="@{'/personalProfile/'+${accountId}}">個人頁面</a>
+                  </li>
+                  <li class="nav-links profile-nav-links">
+                    <a class="nav-text" href="#" th:href="@{'/myPost/'+${accountId}}">
+                    我的貼文/收藏
+                    </a>
+                  </li>
+                  <li class="nav-links profile-nav-links">
+                    <a class="nav-text" href="#" th:href="@{'/followList/'+${accountId}}"> 追蹤清單 </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- SIDE BAR END -->
+
+        <div class="main-content-right">
+          <div class="container">
+            <div class="profile">
+                <div class="alert alert-success alert-dismissible fade in" th:if="${!#strings.isEmpty(message)}">
+                  <a href="#" class="close" data-dismiss="alert">&times;</a>
+                  <strong>Congratulation，</strong>
+                  <span th:text="${message}">success</span>
+                </div>
+<!--              error for verify-->
+                <div class="alert alert-fail alert-dismissible fade in" th:if="${!#strings.isEmpty(message2)}">
+                  <a href="#" class="close" data-dismiss="alert">&times;</a>
+                  <strong>Sorry，</strong>
+                  <span th:text="${message2}">success</span>
+                </div>
+                <!-- 個人 PROFILE 上半部分 -->
+                <div class="profile-top">
+                  <div class="profile-top-left">
+                    <img src="../static/img/profile-page-img/profile.svg" th:src="@{/img/profile-page-img/profile.svg}" alt="" />
+                  </div>
+                  <div class="profile-top-right personal-profile-top-right">
+                    <div class="verification">
+                        <input type="hidden" th:value="${accountId}" name="accountId"/>
+                        <div
+                                class="select"
+                                style="font-weight: 800; font-size: 1.7rem"
+                        >
+                          <form action="#" th:action="@{/updateDisplayedName}" method="post">
+                            <input type="hidden" name="accountId" th:value="${accountId}">
+                            <select name="displayedName" disabled id="identity">
+                              <div th:each="nickname:${nickname}">
+                                <option th:text="${nickname.nickname}">
+                                  政治大學 資訊管理學系
+                                </option>
+                              </div>
+                            </select>
+                            <div class="identity">
+                              <button
+                                      id="edit-identity-btn"
+                                      class="btn-effect"
+                                      type="button"
+                                      onclick="toggleIdentityPage()"
+                              >
+                                <img
+                                        src="../static/img/profile-page-img/edit.svg"
+                                        th:src="@{/img/profile-page-img/edit.svg}"
+                                        alt=""
+                                />
+                              </button>
+                              <button
+                                      id="comfirm-identity"
+                                      class="btn-effect"
+                                      type="submit"
+                                      disabled
+                              >
+<!--                                onclick="closeIdentity()"-->
+                                <span>確定</span>
+                              </button>
+                            </div>
+                          </form>
+                        </div>
+                      <div class="verification-btn">
+                        <button
+                          type="button"
+                          class="open-verification-modal btn-effect"
+                        >
+                          <span>身分驗證</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="profile-top-right-middle">
+                      <div class="left-num">
+                        <img
+                          src="../static/img/profile-page-img/posting-number.svg"
+                          th:src="@{/img/profile-page-img/posting-number.svg}"
+                          alt=""
+                        />
+                        <p>發布的文章 : <span th:text="${postNumber}">6</span></p>
+                      </div>
+                      <div class="right-num">
+                        <i
+                          class="fa-solid fa-star fa-2xl"
+                          style="color: #eee37c"
+                        ></i>
+                        <p>信譽積分 : <span th:text="${userInfo.tScore}">6</span></p>
+                      </div>
+                    </div>
+                    <div class="profile-top-right-middle">
+                      <div class="left-num">
+                        <img
+                          src="../static/img/profile-page-img/posting-like.svg"
+                          th:src="@{/img/profile-page-img/posting-like.svg}"
+                          alt=""
+                        />
+                        <p>文章獲得愛心 : <span th:text="${postLikeNumber}">6</span></p>
+                      </div>
+                      <div class="right-num">
+                        <img
+                          src="../static/img/profile-page-img/comment-like.svg"
+                          th:src="@{/img/profile-page-img/comment-like.svg}"
+                          alt=""
+                        />
+                        <p>留言獲得讚 : <span th:text="${commentLikeNumber}">6</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 個人 PROFILE 上半部分 -->
+
+                <!-- 個人 PROFILE 下半部分 -->
+              <form action="#" th:action="@{/updateSelf}" method="post" style="height: 100%">
+                <input type="hidden" th:value="${accountId}" name="accountId">
+                <div class="profile-bottom">
+                  <div class="profile-bottom-top">
+                    <div class="introduce">
+                      自我介紹
+                      <button
+                        id="edit-info-btn"
+                        class="btn-effect"
+                        type="button"
+                        onclick="toggleEditPage()"
+                      >
+                        <img src="../static/img/profile-page-img/edit.svg" th:src="@{/img/profile-page-img/edit.svg}" alt="" />
+                      </button>
+                      <button
+                        id="comfirm"
+                        class="btn-effect"
+                        type="submit"
+                        disabled
+                      >
+<!--                        onclick="closeEdit()"-->
+                        確定
+                      </button>
+                    </div>
+                  </div>
+                  <div class="profile-bottom-bottom">
+                    <textarea
+                      style="height: 300px"
+                      class="edit-info"
+                      name="self"
+                      id="edit-info"
+                      placeholder="....."
+                      th:text="${userInfo.introduction}"
+                      disabled
+                    ></textarea>
+                  </div>
+                </div>
+                <!-- 個人 PROFILE 下半部分 -->
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 身分驗證 POPUP PAGE -->
+        <dialog class="dialog" style="width: 60%">
+          <div class="popup-page-top">
+            <a href="#" class="close-modal close-tag">
+              <span>&times;</span>
+            </a>
+          </div>
+          <div class="from-box">
+            <form action="#" th:action="@{/verifyId}" method="post" enctype="multipart/form-data">
+              <input type="hidden" name="accountId" th:value="${accountId}">
+              <h1>身分驗證</h1>
+              <div class="form-value">
+                <div class="input-wrapper">
+                  <div class="input-box">
+                    <label for="name">真實姓名</label>
+                    <input type="text" id="name" name="name" required />
+                  </div>
+                  <div class="input-box">
+                    <label for="school">學校</label>
+                    <input type="text" id="school" name="school" required />
+                  </div>
+                  <div class="input-box">
+                    <label for="department">系所</label>
+                    <input
+                      type="text"
+                      id="department"
+                      name="department"
+                      required
+                    />
+                  </div>
+                  <div class="input-box">
+                    <label for="email">信箱</label>
+                    <input type="email" id="email" name="email" required />
+                  </div>
+                  <div class="input-box">
+                    <label for="file">證件圖片</label>
+                    <!--                      onchange="readUrl(this)"-->
+                    <input
+                      type="file"
+                      class="form-control-file"
+                      id="file"
+                      name="file"
+                      value="提交"
+                      onchange="upImg()"
+                      data-title="上傳學生證正面"
+                      required
+                    />
+                  </div>
+                  <div class="agree-check-box">
+                    <input type="checkbox" required checked />
+                    <p>
+                      送出資料即代表我已確認上述所有資料皆為我本人所有，並無盜用或偽造。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="send-btn">
+                <button type="submit" class="btn-effect">送出</button>
+              </div>
+            </form>
+          </div>
+        </dialog>
+      <!-- 身分驗證 POPUP PAGE -->
+    </div>
+    <!-- SCRIPT -->
+    <script>
+      if('serviceWorker' in navigator){
+        console.log("Will service worker register?");
+        navigator.serviceWorker.register('/service-worker.js').then(function (reg){
+          console.log("Yes,it did");
+        }).catch(function (err){
+          console.log("No it didn't,This happen: ",err);
+        })
+      }
+    </script>
+    <script>
+      //EDIT IDENTITY START
+      function toggleIdentityPage() {
+        var edit = document.getElementById("identity");
+        var editBtn = document.getElementById("comfirm-identity");
+
+        edit.disabled = false;
+
+        editBtn.disabled = false;
+        editBtn.style.visibility = "visible";
+      }
+
+      function closeIdentity() {
+        var edit = document.getElementById("identity");
+        var editBtn = document.getElementById("comfirm-identity");
+
+        edit.disabled = true;
+
+        editBtn.disabled = true;
+        editBtn.style.visibility = "hidden";
+      }
+      //EDIT IDENTITY END
+    </script>
+    <script defer src="../static/js/main.js" th:src="@{/js/main.js}"></script>
+    <script defer src="../static/js/personalProfile.js" th:src="@{/js/personalProfile.js}"></script>
+    <script src="../static/js/jquery-3.2.1.min.js"
+            th:src="@{/js/jquery-3.2.1.min.js}">
+    </script>
+    <script
+            src="../static/js/bootstrap.min.js"
+            th:src="@{/js/bootstrap.min.js}"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/68fe11f082.js"
+      th:src="@{'https://kit.fontawesome.com/68fe11f082.js'}"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.rawgit.com/Leaverou/awesomplete/gh-pages/awesomplete.min.js" th:src="@{https://cdn.rawgit.com/Leaverou/awesomplete/gh-pages/awesomplete.min.js}"></script>
+
+  </body>
+</html>

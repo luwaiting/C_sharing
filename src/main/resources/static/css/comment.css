@@ -1,0 +1,132 @@
+.comment-page-top,
+.comment-page-middle-top {
+  display: flex;
+}
+
+.comment-page-top {
+  margin-top: 100px;
+}
+
+.comment-page-middle-top {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comment-page-top-left,
+.comment-page-top-middle,
+.comment-page-middle-top-left,
+.comment-page-middle-top-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+}
+
+.comment-page-top-left > *,
+.comment-page-top-middle > *,
+.comment-page-middle-top-left > * {
+  padding: 4px;
+}
+
+.comment-page-top-left img {
+  width: 35px;
+}
+
+.comment-page-top-left span,
+.comment-page-top-middle span {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.comment-num-string {
+  margin-left: 20px;
+}
+
+.comment-like-num p {
+  font-size: 20px;
+  padding: 10px 10px 0 0;
+  color: #868686;
+}
+
+.comment-page-top-middle button {
+  color: white;
+  border-radius: 10px;
+
+  align-self: center;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 0.8rem;
+  outline: none;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.comment-page-top-middle button:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.hot,
+.old-to-new {
+  width: 100%;
+}
+
+.old-to-new-btn {
+  margin-left: 20px;
+}
+
+.toggle-btn {
+  background-color: #9cb8d9;
+}
+
+.toggle-btn:hover {
+  background-color: #5c8bc1;
+}
+
+.inactive-btn {
+  background-color: #b8b8b8;
+}
+
+.inactive-btn:hover {
+  background-color: #8f8f8f;
+}
+
+.comment-page-middle-top-left span {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.report-comment,
+.like-comment {
+  margin-bottom: 10px;
+}
+
+.comment-page-middle-top-right img {
+  margin-bottom: 25px;
+}
+
+.comment-page-middle-top-left img {
+  margin-left: 20px;
+}
+
+.comment-page-middle-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewer-comment {
+  width: 80%;
+  margin: 0 0 30px;
+}
+
+.user-comment-right {
+  margin-right: 20px;
+}

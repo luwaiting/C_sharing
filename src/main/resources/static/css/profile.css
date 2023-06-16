@@ -1,0 +1,315 @@
+.profile-menu-links {
+  margin: 99px 0 0 50px;
+}
+
+.profile-nav-links {
+  list-style-type: none;
+}
+
+.profile {
+  width: 88%;
+  margin: 30px 0;
+}
+
+.profile-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-top-right {
+  width: 60%;
+}
+
+.personal-profile-top-right > * {
+  margin: 50px 0;
+}
+
+.personal-profile-top-right p {
+  font-weight: 600;
+  font-size: 1.4rem;
+
+  margin-left: 10px;
+}
+
+.verification {
+  display: flex;
+  align-items: center;
+}
+
+.verification-btn {
+  margin-left: 100px;
+}
+
+.verification-btn button {
+  font-size: 1rem;
+  color: white;
+  background-color: #9cb8d9;
+  border-radius: 20px;
+  width: 90px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verification-btn button:hover {
+  background-color: #5c8bc1;
+}
+
+.profile-top-right-middle,
+.left-num,
+.right-num {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left-num,
+.right-num {
+  width: 50%;
+  justify-content: start;
+}
+
+.right-num {
+  margin-left: 10px;
+}
+
+.profile-bottom {
+  width: 100%;
+  margin: 50px 0 0;
+}
+
+.introduce {
+  font-weight: 700;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  margin: 0 0 20px 10px;
+}
+
+.identity {
+  font-weight: 700;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.introduce img {
+  width: 20px;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.profile-bottom-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-info {
+  background-color: white;
+  width: 100%;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+}
+
+#comfirm,
+#comfirm-identity {
+  margin-left: 20px;
+  color: black;
+  width: 50px;
+  align-self: center;
+  background-color: #aeadad;
+  border-style: solid;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  visibility: hidden;
+}
+
+#comfirm-identity {
+  margin-left: 10px;
+}
+
+#comfirm:hover,
+#comfirm-identity:hover {
+  transform: translate3d(0, 2px, 0);
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+}
+
+/* SELECT OPTION */
+select {
+  /* Reset Select */
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  border: none;
+  background-image: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+/* Custom Select wrapper */
+.select {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  border-radius: 0.25em;
+  overflow: hidden;
+}
+/* Arrow */
+.select::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+
+  transition: 0.25s all ease;
+  pointer-events: none;
+}
+/* Transition */
+.select:hover::after {
+  color: black;
+}
+.select form {
+  display: flex;
+}
+
+option {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+/* OTHERS PROFILE */
+.posting-num,
+.like-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.others-profile-top-left-bottom p {
+  padding: 0 0 0 15px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.profile-top-right-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.others-name {
+  font-weight: 900;
+}
+
+.others-school {
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.like-or-not {
+  margin-bottom: 36px;
+}
+
+.others-info div {
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+}
+
+.like-or-not p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.others-intro {
+  width: 100%;
+  background-color: #f7f6f2;
+  height: 230px;
+  overflow-y: auto;
+  word-wrap: break-word;
+  border-radius: 30px 0 0 30px;
+  margin-top: 30px;
+}
+
+.intro-title {
+  padding: 20px;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.intro-content {
+  padding: 0 20px 10px 20px;
+  font-size: 1rem;
+}
+
+.others-profile-bottom {
+  background-color: #f7f6f2;
+  border-radius: 30px;
+}
+
+.others-post {
+  padding: 20px;
+}
+
+.others-post a {
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.others-post a div {
+  padding: 20px;
+}
+
+.fa-thumbs-up {
+  font-size: 3rem;
+}
+
+@media screen and (max-width: 500px) {
+  .profile-top-left img {
+    width: 50px;
+    margin-top: 7px;
+  }
+
+  .others-profile-top-left-bottom p {
+    font-size: 0.9rem;
+  }
+
+  .profile-top {
+    align-items: start;
+  }
+
+  .posting-num img,
+  .like-num img {
+    width: 20px;
+    margin-left: 5px;
+  }
+
+  .others-info div {
+    font-size: 1rem;
+  }
+
+  .fa-thumbs-up {
+    font-size: 1.5rem;
+    margin-top: 5px;
+  }
+
+  .others-intro {
+    height: 150px;
+    margin-top: 20px;
+  }
+
+  .intro-title {
+    font-size: 1rem;
+  }
+
+  .intro-content {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,240 @@
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #7c92b3;
+}
+
+.login-container,
+.alert-container {
+  display: flex;
+  justify-content: center;
+}
+
+.login {
+  background-color: #7c92b3;
+  width: 100%;
+}
+
+.login-from-box {
+  background-color: #f7f6f2;
+  border-radius: 30px;
+  width: 80%;
+}
+
+.login-from-box h1 {
+  padding: 20px;
+  text-align: center;
+}
+
+.input-wrapper {
+  width: 90%;
+}
+
+.login-input-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.login-input-box label,
+.select label {
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: 195px;
+}
+
+.login-input-box input {
+  width: 50%;
+  font-size: 1.1rem;
+  padding-left: 5px;
+  background: transparent;
+  border-radius: 10px;
+  border: 1px solid gray;
+}
+
+.login-input-box p {
+  display: flex;
+  justify-content: end;
+}
+
+.login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0 10px;
+}
+
+.login-btn button {
+  font-size: 1rem;
+  color: white;
+  background-color: #9cb8d9;
+  border-radius: 20px;
+  width: 90px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-btn button:hover {
+  background-color: #5c8bc1;
+}
+
+.login-btn button a {
+  color: white;
+}
+
+.login-form-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blank-container,
+.never-null-container {
+  width: 130px;
+}
+
+.never-null-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register {
+  display: flex;
+  justify-content: center;
+}
+
+/* SELECT OPTION */
+select {
+  /* Reset Select */
+
+  background: transparent;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  border: none;
+  background-image: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 800;
+  width: 47%;
+}
+/* Custom Select wrapper */
+.select {
+  margin-top: 30px;
+  justify-content: space-between;
+  position: relative;
+  display: flex;
+  width: 50%;
+  height: 1.1em;
+  border-radius: 0.25em;
+  overflow: hidden;
+}
+/* Arrow */
+.select::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+
+  transition: 0.25s all ease;
+  pointer-events: none;
+}
+/* Transition */
+.select:hover::after {
+  color: black;
+}
+
+option {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+/* RWD START */
+
+@media screen and (max-width: 420px) {
+  .blank-container {
+    width: 0;
+  }
+
+  .never-null-container {
+    width: 77px;
+  }
+
+  .never-null-container p {
+    font-size: 10px;
+  }
+
+  .login-input-box label {
+    font-size: 1rem;
+    width: 90px;
+  }
+
+  .login-input-box input {
+    font-size: 0.9rem;
+  }
+
+  #confirm {
+    height: 19px;
+    margin-top: 9.5px;
+  }
+
+  .login-input-box span {
+    font-size: 0.9rem;
+  }
+
+  .email {
+    width: 230px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  strong,
+  .alert span {
+    font-size: 0.8rem;
+  }
+
+  .login-btn {
+    padding: 20px 0 10px;
+  }
+
+  .login-btn button {
+    font-size: 0.8rem;
+    height: 20px;
+  }
+
+  #ensurePassword {
+    height: 19px;
+    margin-top: 9.5px;
+  }
+
+  .select label {
+    font-size: 1rem;
+    width: 80.23px;
+  }
+
+  select {
+    font-size: 0.9rem;
+    width: 65%;
+  }
+
+  .select {
+    justify-content: start;
+    width: 100%;
+  }
+}
+
+/* RWD END */

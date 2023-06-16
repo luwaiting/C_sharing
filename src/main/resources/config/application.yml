@@ -3,16 +3,39 @@ spring:
     mode: HTML
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/C_sharing?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/test_3C?useUnicode=true&characterEncoding=utf-8
     username: root
     password: Howard0415
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 100MB
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: update
+  mail:
+    username: 110306003@g.nccu.edu.tw
+    password: gxtjohcbcamgguef
+    host: smtp.gmail.com
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+            ssl:
+              trust: smtp.gmail.com
+
 logging:
   level:
     root: info
     com.lrm: debug
   file:
     path: log/my.log
+SavePath:
+  ProfilePhoto: '/Users/waiting/c_s_img/'
+  ProfilePhotoMapper: '/c_s_img/'

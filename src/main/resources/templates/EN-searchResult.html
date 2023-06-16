@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+
+    <!-- IMPORT FONT -->
+    <link rel="manifest" href="../static/manifest.json" th:href="@{/manifest.json}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" th:href="@{https://fonts.googleapis.com}"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin th:href="@{https://fonts.gstatic.com}"/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap"
+            th:href="@{https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap}"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Leaverou/awesomplete/gh-pages/awesomplete.css" th:href="@{https://cdn.rawgit.com/Leaverou/awesomplete/gh-pages/awesomplete.css}">
+
+
+    <!-- CSS -->
+    <!--    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">-->
+    <link rel="manifest" href="../static/manifest.json" th:href="@{/manifest.json}">
+    <link rel="stylesheet" href="../static/css/profile.css" th:href="@{/css/profile.css}"/>
+    <link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" href="../static/css/slider.css" th:href="@{/css/slider.css}"/>
+    <!--    <link rel="stylesheet" href="../static/css/course.css" th:href="@{/css/course.css}"/>-->
+    <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}"/>
+</head>
+<body>
+<div>
+    <!-- TOP BAR START-->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <div class="name"><a href="#" th:href="@{'/homePage/'+${accountId}}">C-Sharing</a></div>
+            <form action="#" th:action="@{/search}" method="post">
+                <div class="search-box">
+                    <input type="text" name="search" list="myList" class="awesomplete" th:text="${input}"/>
+                    <datalist id="mylist">
+                        <div th:each="key:${allCourseBoard}">
+                            <option th:text="${key.boardName}">Ada</option>
+                        </div>
+                    </datalist>
+                    <a class="search-btn" href="#" id="searchBtn">
+                        <img
+                                class="search-img"
+                                src="../static/img/posting-page-img/Vector.svg"
+                                th:src="@{/img/posting-page-img/Vector.svg}"
+                                alt=""
+                        />
+                    </a>
+                </div>
+            </form>
+        </div>
+        <div class="top-bar-right">
+            <!--          undo -->
+            <a href="#" th:href="@{/personalProfile}"
+            ><div class="profile">
+                <img
+                        class="profile1"
+                        src="../static/img/posting-page-img/Profile1.svg"
+                        th:src="@{/img/posting-page-img/Profile1.svg}"
+                        alt=""
+                />
+                <img
+                        class="profile2"
+                        src="../static/img/posting-page-img/Profile2.svg"
+                        th:src="@{/img/posting-page-img/Profile2.svg}"
+                        alt=""
+                />
+                <img
+                        class="profile3"
+                        src="../static/img/posting-page-img/Profile3.svg"
+                        th:src="@{/img/posting-page-img/Profile3.svg}"
+                        alt=""
+                /></div
+            ></a>
+        </div>
+    </div>
+    <!-- TOP BAR END-->
+
+    <div class="main-content">
+        <!-- SIDE BAR START-->
+        <div class="main-content-left">
+            <div class="side-bar">
+                <!--                <i class="fa-solid fa-bars"></i>-->
+                <!--                <div class="button-box">-->
+                <!--                    <div class="btn"></div>-->
+                <!--                    <button type="button" class="toggle-btn" onclick="leftClick()">-->
+                <!--                        <a href="#" th:href="@{'/Ch/'+${accountId}}">本地生</a>-->
+                <!--                    </button>-->
+                <!--                    <button type="button" class="toggle-btn" onclick="rightClick()">-->
+                <!--                        <a href="#" th:href="@{'/En/'+${accountId}}">外籍生</a>-->
+                <!--                    </button>-->
+                <!--                </div>-->
+                <header>
+                    <div class="text">School</div>
+                </header>
+
+                <div class="menu-bar">
+                    <div class="menu">
+                        <ul class="munu-links">
+                            <li class="nav-links">
+                                <img
+                                        class="nav-img"
+                                        src="../static/img/posting-page-img/NCCU.svg"
+                                        th:src="@{/img/posting-page-img/NCCU.svg}"
+                                        alt=""
+                                />
+                                <!--         undo           -->
+                                <a class="nav-text" href="nccu.html">NCCU</a>
+                            </li>
+                            <li class="nav-links">
+                                <img
+                                        class="nav-img"
+                                        src="../static/img/posting-page-img/NTU.svg"
+                                        th:src="@{/img/posting-page-img/NTU.svg}"
+                                        alt=""
+                                />
+                                <a class="nav-text" href=".html">NTU</a>
+                            </li>
+                            <li class="nav-links">
+                                <img
+                                        class="nav-img"
+                                        src="../static/img/posting-page-img/NTHU.svg"
+                                        th:src="@{/img/posting-page-img/NTHU.svg}"
+                                        alt=""
+                                />
+                                <a class="nav-text" href=".html">NTHU</a>
+                            </li>
+                            <li class="nav-links">
+                                <img
+                                        class="nav-img"
+                                        src="../static/img/posting-page-img/NYCU.svg"
+                                        th:src="@{/img/posting-page-img/NYCU.svg}"
+                                        alt=""
+                                />
+                                <a class="nav-text" href=".html">NYCU</a>
+                            </li>
+                            <li class="nav-links">
+                                <img
+                                        class="nav-img"
+                                        src="../static/img/posting-page-img/NCKU.svg"
+                                        th:src="@{/img/posting-page-img/NCKU.svg}"
+                                        alt=""
+                                />
+                                <a class="nav-text" href=".html">NCKU</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- SIDE BAR END-->
+        <div class="main-content-right">
+            <div class="container">
+                <div class="slider-post">
+                    <div class="slider-post-title">
+                        <input
+                                type="radio"
+                                id="all-post"
+                                name="index-showing-content"
+                                checked
+                                onclick="showIndexContent()"
+                        />
+                        <label for="all-post" class="select-all-btn border-active">
+                            <span style="color: black">Search Result</span>
+                        </label>
+                    </div>
+                    <div class="divding-line"><hr style="width: 100%" /></div>
+                    <!-- SLIDER START -->
+                    <span class="posting-order" th:text="${message}">message</span>
+
+                    <div class="slider index-slider">
+                        <div class="slides index-slides">
+                            <!-- TRACKING FORUMS SLIDE START -->
+                            <div class="slide index-slide hover-scroll-bar">
+                                <!-- TRACKING FORUMS START -->
+                                <div class="others-post" th:each="board:${allCourseBoard}">
+                                    <div class="forums">
+                                        <!--                        undo -->
+                                        <a href="#" th:href="@{'/board/'+${board.id}+'/'+${accountId}}">
+                                            <div class="course-container">
+                                                <div class="course-top">
+                                                    <div class="course-title">
+                                                        <div class="course-info">
+                                                            <div class="course-top-name">
+                                                                <h1 th:text="${board.boardName}">管理科學</h1>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="compulsory-or-not" th:switch="${board.courseType}">
+                                                        <p style="color: #868686" th:case="0">Compulsory/Elective Courses</p>
+                                                        <p style="color: #868686" th:case="1">Gen Ed Courses</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="comment-dividing-line">
+                                        <hr style="border: 1px solid #a3a3a3" />
+                                    </div>
+                                </div>
+                                <!-- TRACKING FORUMS END -->
+                            </div>
+                            <!-- TRACKING FORUMS SLIDE END -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPT -->
+<script>
+    if ("serviceWorker" in navigator) {
+        console.log("Will service worker register?");
+        navigator.serviceWorker
+            .register("/service-worker.js")
+            .then(function (reg) {
+                console.log("Yes,it did");
+            })
+            .catch(function (err) {
+                console.log("No it didn't,This happen: ", err);
+            });
+    }
+</script>
+<script>
+    const btn = document.querySelector(".btn");
+
+    function leftClick() {
+        btn.style.left = "0";
+    }
+
+    function rightClick() {
+        btn.style.left = "110px";
+    }
+</script>
+
+<script src="../static/js/jquery-3.2.1.min.js"
+        th:src="@{/js/jquery-3.2.1.min.js}">
+</script>
+<script
+        src="../static/js/bootstrap.min.js"
+        th:src="@{/js/bootstrap.min.js}"
+></script>
+<script
+        src="https://kit.fontawesome.com/68fe11f082.js"
+        th:src="@{https://kit.fontawesome.com/68fe11f082.js}"
+        crossorigin="anonymous"
+></script>
+<script defer src="../static/js/main.js" th:src="@{/js/main.js}"></script>
+<script src="https://cdn.rawgit.com/Leaverou/awesomplete/gh-pages/awesomplete.min.js" th:src="@{https://cdn.rawgit.com/Leaverou/awesomplete/gh-pages/awesomplete.min.js}"></script>
+<script>
+    function redirectToPage(url) {
+        if (url !== "") {
+            window.location.href = url;
+        }
+    }
+</script>
+</body>
+</html>

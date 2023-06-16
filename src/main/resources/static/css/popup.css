@@ -1,0 +1,96 @@
+.popup-page-top {
+  padding: 0px 5px 5px;
+}
+
+.close-tag {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.5rem;
+  position: relative;
+  margin-right: 3px;
+  color: black;
+}
+
+/* REPORT POPUP PAGE */
+.report-popup {
+  width: 170px;
+}
+
+.report-page-middle {
+  padding: 5px 25px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.report-post {
+  display: none;
+}
+
+.report-page-middle p {
+  margin-left: 5px;
+  font-size: 1.2rem;
+  margin-bottom: 2px;
+}
+
+.report-page-middle label span {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  border: 2px solid black;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.report-page-middle label span i {
+  opacity: 0;
+}
+
+.report-page-middle label:hover span {
+  background-color: #bebebe;
+}
+
+.report-post:checked + label span i {
+  opacity: 1;
+}
+
+.report-post:checked + label span {
+  background-color: #bebebe;
+}
+
+.report-page-bottom {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 5px;
+}
+
+.report-page-bottom button {
+  color: white;
+  width: 10%;
+  align-self: center;
+  background-color: black;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  line-height: 23px;
+}
+
+.report-page-bottom button:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+}
+
+.report-textarea {
+  min-height: 300px;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .report-page-bottom button {
+    width: 20%;
+  }
+}

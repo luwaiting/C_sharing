@@ -1,0 +1,278 @@
+.post-content {
+  background-color: #f7f6f2;
+  border-radius: 30px;
+  width: 90%;
+  margin: 20px;
+  height: 100%;
+}
+
+.posting-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+.nickname-select {
+  margin-left: 5px;
+}
+
+.never-null-container {
+  height: 19px;
+}
+/* SELECT OPTION */
+select {
+  /* Reset Select */
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  border: none;
+  background-image: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: transparent;
+}
+/* Custom Select wrapper */
+.nickname-select {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  border-radius: 0.25em;
+  overflow: hidden;
+}
+/* Arrow */
+.nickname-select::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+
+  transition: 0.25s all ease;
+  pointer-events: none;
+}
+/* Transition */
+.nickname-select:hover::after {
+  color: black;
+}
+
+option {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.posting-title {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.posting-title-left,
+.posting-title-right {
+  display: flex;
+  align-items: center;
+}
+
+.login-input-box {
+  margin-left: 30px;
+  width: 100%;
+}
+
+.login-input-box input {
+  width: 50%;
+  font-size: 1.8rem;
+  padding: 7px 10px;
+
+  outline: none;
+  border-radius: 30px;
+  border-color: #0f0f0f;
+  background-color: #e6e6e6;
+}
+
+.compulsory-or-not {
+  padding-right: 20px;
+}
+
+.rating-row {
+  width: 55%;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+.course-experience {
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+.sweetness,
+.simplicity,
+.sharing {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  color: #868686;
+}
+
+.sharing {
+  font-size: 2rem;
+}
+
+.share-content {
+  word-wrap: break-word;
+  width: 80%;
+  height: 100%;
+}
+
+.comment-textarea {
+  padding: 0;
+}
+
+.send-btn {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding-right: 50px;
+  padding: 50px;
+}
+
+.send-btn button {
+  font-size: 0.9rem;
+  color: white;
+  border-radius: 10px;
+  width: 90px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.send-btn button[type="cancel"] {
+  background-color: #dfdfdf;
+}
+
+.send-btn button[type="cancel"]:hover {
+  background-color: #868686;
+}
+
+.send-btn button[type="submit"] {
+  background-color: #9cb8d9;
+}
+
+.send-btn button[type="submit"]:hover {
+  background-color: #5c8bc1;
+}
+
+.send-btn button a {
+  color: white;
+}
+
+.sweetness-rating label,
+.simplicity-rating label {
+  cursor: pointer;
+}
+.unchecked {
+  color: #868686;
+}
+.checked {
+  color: orange;
+}
+.sweetness-rating input,
+.simplicity-rating input {
+  display: none;
+}
+
+.simplicity-rating,
+.sweetness-rating {
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .posting-time {
+    padding-left: 0;
+  }
+
+  .nickname-select {
+    width: 85px;
+  }
+
+  .sweetness,
+  .simplicity,
+  .sharing {
+    font-size: 1rem;
+  }
+
+  .login-input-box {
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 10px;
+  }
+
+  .posting-title {
+    display: block;
+  }
+
+  .posting-title-left,
+  .posting-title-right {
+    display: block;
+  }
+
+  .login-input-box input {
+    width: 80%;
+    font-size: 1rem;
+  }
+
+  select {
+    font-size: 1rem;
+  }
+
+  .posting-time p {
+    font-size: 0.8rem;
+  }
+
+  .posting-top {
+    margin-left: 10px;
+  }
+
+  .poster-image img {
+    width: 30px;
+  }
+
+  .posting-title-right {
+    margin-left: 10px;
+    margin-top: 20px;
+  }
+
+  .fa-star {
+    font-size: 20px;
+  }
+
+  .rating-row {
+    width: 280px;
+    margin-left: 10px;
+  }
+
+  .course-experience {
+    margin-left: 10px;
+  }
+
+  .send-btn button {
+    font-size: 0.8rem;
+    width: 73px;
+    height: 30px;
+  }
+
+  .sharing {
+    margin-left: 0;
+  }
+
+  .en-nickname-select {
+    width: 160px;
+  }
+}
