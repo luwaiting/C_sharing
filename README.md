@@ -23,6 +23,6 @@
 >> * 串接Google Vision API 搭配js實作出學生證驗證取得校系稱號的功能
 >> * Awesomplete library -->用於實作預測使用者查詢功能
 
-> Some diagram
->> ![C_Sharing_ERD.png](https://raw.githubusercontent.com/Lu-weiting/ImageRepository/master/C_Sharing_ERD.png)
+> ERD diagram
+>> ![C_sharing_ERD.png](https://raw.githubusercontent.com/Lu-weiting/ImageRepository/master/C_sharing_ERD.png)
 
